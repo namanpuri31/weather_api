@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Api</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link  rel="stylesheet" href="api.css">
+    
+</head>
+<body>
+    <div class="container">
+        <h2>Weather report</h2>
+        <h2 class="location">{%location%}&deg;C,{%country%}</h2>
+        <div id="weatherlogo">
+            <i class="fa-solid fa-sun" id="logo" style="color:#f8f83c;"></i>
+        </div>
+        <div id="date">
+        </div>
+        <div id="temperature">
+            {%temperature%}&deg;C
+        </div>
+    </div>
+    <!-- <script src="test.js"></script> -->
+    <script>
+        const logo=document.getElementById("weatherlogo")
+        const tempstatus="{%tempstatus%}"
+
+        if(tempstatus== "Sunny"){
+            logo.innerHTML='<i class="fa-solid fa-sun" id="logo" style="color:#f8f83c;"></i>'
+        }
+        else if(tempstatus== "Clouds"){
+            logo.innerHTML='<i class="fa-solid fa-cloud" id="logo" style="color:#f8f83c;"></i>'
+        }
+        else if(tempstatus== "Rain"){
+            logo.innerHTML='<i class="fa-solid fa-cloud-rain" id="logo" style="color:#f8f83c;"></i>'
+        }
+        else{
+            logo.innerHTML='<i class="fa-solid fa-cloud" id="logo" style="color:#f8f83c;"></i>'
+        }
+        const datee=document.getElementById("date")
+        const datedata=[
+            'mon',
+            'tue',
+            'wed',
+            'thu',
+            'fri',
+            'sat',
+            'sun'
+        ]
+        const date=new Date();
+        datee.innerHTML=date.getDate() +" | "+ datedata[date.getDay()]+" | "+ date.getFullYear()
+    </script>
+    <script src="test.js"></script>
+</body>
+</html>
